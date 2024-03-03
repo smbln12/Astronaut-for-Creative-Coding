@@ -49,6 +49,20 @@ body {
     top: 50%;
     transform-style: preserve-3d;
     animation: orbit 10s linear infinite, spin 5s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.planet1::after, .planet2::after, .planet3::after, .planet4::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    animation: glow 3s linear infinite alternate;
 }
 
 .planet1 {
@@ -99,5 +113,20 @@ body {
     }
     to {
         opacity: 0;
+    }
+}
+
+@keyframes glow {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
     }
 }
