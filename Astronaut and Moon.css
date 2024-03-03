@@ -12,53 +12,92 @@ body {
     transform-style: preserve-3d;
 }
 
-.planet {
-    width: 50px;
-    height: 50px;
-    background: radial-gradient(circle, #FFD700 20%, transparent 80%);
+.star {
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    animation: twinkle 0.5s infinite alternate;
+}
+
+.star:nth-child(1) {
+    top: 20%;
+    left: 10%;
+}
+
+.star:nth-child(2) {
+    top: 50%;
+    left: 90%;
+}
+
+.star:nth-child(3) {
+    top: 80%;
+    left: 30%;
+}
+
+.star:nth-child(4) {
+    top: 40%;
+    left: 60%;
+}
+
+.planet1, .planet2, .planet3, .planet4 {
+    width: 70px; /
+    height: 70px;
     border-radius: 50%;
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotateZ(0deg) rotateY(0deg) rotateX(0deg);
+    transform-style: preserve-3d;
     animation: orbit 10s linear infinite, spin 5s linear infinite;
+}
+
+.planet1 {
+    background: radial-gradient(circle, #FFD700 20%, #FFA500 80%);
+    left: 30%;
+    transform: translateZ(-50px);
+}
+
+.planet2 {
+    background: radial-gradient(circle, #00FFFF 20%, #00BFFF 80%);
+    left: 40%;
+    transform: translateZ(-50px);
+}
+
+.planet3 {
+    background: radial-gradient(circle, #FF6347 20%, #FF4500 80%);
+    left: 50%;
+    transform: translateZ(-50px);
+}
+
+.planet4 {
+    background: radial-gradient(circle, #800080 20%, #4B0082 80%);
+    left: 60%;
+    transform: translateZ(-50px);
 }
 
 @keyframes orbit {
     from {
-        transform: translate(-50%, -50%) rotateZ(0deg) rotateY(0deg) rotateX(0deg);
+        transform: translateX(500px) rotateY(0deg) rotateX(0deg);
     }
     to {
-        transform: translate(-50%, -50%) rotateZ(360deg) rotateY(360deg) rotateX(360deg);
+        transform: translateX(-500px) rotateY(360deg) rotateX(360deg);
     }
 }
 
 @keyframes spin {
     from {
-        transform: rotateY(0deg);
+        transform: rotateX(0deg);
     }
     to {
-        transform: rotateY(360deg);
+        transform: rotateX(360deg);
     }
 }
 
-.planet:nth-child(2) {
-    width: 70px;
-    height: 70px;
-    background: radial-gradient(circle, #00FFFF 20%, transparent 80%);
-    animation-duration: 12s;
-}
-
-.planet:nth-child(3) {
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(circle, #FF6347 20%, transparent 80%);
-    animation-duration: 8s;
-}
-
-.planet:nth-child(4) {
-    width: 60px;
-    height: 60px;
-    background: radial-gradient(circle, #800080 20%, transparent 80%);
-    animation-duration: 15s;
+@keyframes twinkle {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
